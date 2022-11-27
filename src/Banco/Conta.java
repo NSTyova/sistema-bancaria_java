@@ -2,6 +2,7 @@ package Banco;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public  abstract class Conta {
 
@@ -30,5 +31,18 @@ public  abstract class Conta {
 
     public void setNumero(Long numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Conta)) return false;
+        Conta conta = (Conta) o;
+        return getNumero().equals(conta.getNumero());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumero());
     }
 }
