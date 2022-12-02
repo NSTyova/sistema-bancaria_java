@@ -4,11 +4,16 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
+/***
+ *
+ */
 public  abstract class Conta {
 
     private LocalDate dataCriacao;
     private Double saldo;
     private Long numero;
+
+
     public LocalDate getDataCriacao() {
         return dataCriacao;
     }

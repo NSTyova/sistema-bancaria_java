@@ -1,4 +1,4 @@
-package Banco;
+package Banco.clientes;
 
 import java.util.Date;
 
@@ -9,10 +9,13 @@ public class Cliente {
     private Date dataNascimento;
 
     public String getNome() {
-        return nome;
+        return nome.toUpperCase();
     }
 
     public void setNome(String nome) {
+        if(nome.isEmpty()){
+            System.out.println("O nome não pode ser Null");
+        }
         this.nome = nome;
     }
 
@@ -21,6 +24,9 @@ public class Cliente {
     }
 
     public void setEmail(String email) {
+        if(email.isEmpty()){
+            System.out.println("O nome não pode ser Null");
+        }
         this.email = email;
     }
 
