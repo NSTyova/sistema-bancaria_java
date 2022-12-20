@@ -1,10 +1,16 @@
 package Banco.funcionarios;
 
-public class Funcionarios {
+public abstract class Funcionarios {
 
 	private String nome;
 	private Double salario;
 	private String telefone;
+	
+	/**
+	 * metdo que calcuca a bonificacao de cada funcionario com base ao seu salario
+	 * @return
+	 */
+	public abstract double getBonificacao() ;
 	public String getNome() {
 		return nome;
 	}

@@ -16,6 +16,11 @@ public class Gerentes extends Funcionarios{
 		return false;
 	}
 	
+	/*@Override
+	public double getBonificacao() {
+		return super.getBonificacao() + 100;
+	}*/
+	
 	public int getSenha() {
 		return senha;
 	}
