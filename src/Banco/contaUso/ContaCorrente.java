@@ -14,7 +14,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
 
 
     @Override
-    public void levantar(Long numero, Double valor, LocalDate dataMovimento) {
+    public void levantar(Long  numero, Double valor, LocalDate dataMovimento) {
        Calendar c = new GregorianCalendar();
         // tentar pegar aqui o dia dez para não fazer levantamento pois é manutenção
 
@@ -39,14 +39,10 @@ public class ContaCorrente extends Conta implements MovimentConta{
 
     @Override
     public void transferir(Conta orgiem, Conta destino, LocalDate dataMovimento) {
-
+    	
     }
 
-    @Override
-    public Double percentagem() {
-        double v = super.getSaldo() * 0.10;
-        return v;
-    }
+  
 
     public LocalDate getDataLevantamento() {
         return dataLevantamento;
@@ -72,6 +68,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
     public List<Conta> dados(Conta cont){
         DecimalFormat formar = new DecimalFormat("Akz$ #,###0.00");
         List<Conta> conta = Arrays.asList(cont);
+        conta.forEach(b -> System.out.println(b.getNumero() + "" + b.getSaldo()));
         for (Conta c: conta) {
             System.out.println(formar.format(c.getSaldo()) + " " + toString() + " Nome: "+ clientes.getNome());
         }
@@ -79,7 +76,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
     }
      public List<Conta> dados(){
         List<Conta> c = Arrays.asList();
-        c.forEach(b -> System.out.print(b.getSaldo()));
+        c.forEach((b) -> System.out.print(b.getSaldo() +""+ b.getNumero() + "" + b.getDataCriacao()));
         return c;
      }
 
@@ -87,6 +84,12 @@ public class ContaCorrente extends Conta implements MovimentConta{
     public String toString() {
         return null;
     }
+
+	@Override
+	public void dep(String... strings) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

@@ -1,12 +1,13 @@
 package Banco.clientes;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Cliente {
     private String nome;
     private String email;
     private Integer telefone;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
     public String getNome() {
         return nome.toUpperCase();
@@ -38,11 +39,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }
