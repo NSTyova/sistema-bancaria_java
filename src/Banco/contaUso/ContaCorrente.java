@@ -21,7 +21,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
         if(c.equals(dataMovimento)){
             System.out.println("O banco está em manuntenção "+ Calendar.getInstance());
         }
-       if(!this.getNumero().equals(numero) || dataLevantamento.isBefore(dataMovimento)){
+       if(!this.getNumero().equals(numero) || dataMovimento.isBefore(dataLevantamento)){
            System.out.println("numero / data não estão certas ou é dia de manuntencão");
        }else {
            super.setSaldo(this.getSaldo() - valor);
@@ -38,8 +38,13 @@ public class ContaCorrente extends Conta implements MovimentConta{
     }
 
     @Override
-    public void transferir(Conta orgiem, Conta destino, LocalDate dataMovimento) {
-    	
+    public void transferir(Double valor, MovimentConta destino, LocalDate dataMovimento) {
+    	this.levantar(getNumero(), valor, dataMovimento);
+    	destino.depositar(getNumero(), valor, dataMovimento);
+    	// melhorar esta abordagem de transferencia
+    	/*if(this.levantar(getNumero(), valor, dataMovimento)) {
+    		destino.depositar(getNumero(), valor, dataMovimento);
+    	}*/
     }
 
   
@@ -68,7 +73,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
     public List<Conta> dados(Conta cont){
         DecimalFormat formar = new DecimalFormat("Akz$ #,###0.00");
         List<Conta> conta = Arrays.asList(cont);
-        conta.forEach(b -> System.out.println(b.getNumero() + "" + b.getSaldo()));
+        conta.forEach(b -> System.out.println("Numero de Conta  "+b.getNumero() + " Saldo da Conta " + b.getSaldo()));
         for (Conta c: conta) {
             System.out.println(formar.format(c.getSaldo()) + " " + toString() + " Nome: "+ clientes.getNome());
         }
@@ -82,7 +87,7 @@ public class ContaCorrente extends Conta implements MovimentConta{
 
     @Override
     public String toString() {
-        return null;
+        return  ""+ dataLevantamento;
     }
 
 	@Override
