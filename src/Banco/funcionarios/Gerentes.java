@@ -1,20 +1,13 @@
 package Banco.funcionarios;
 
-public class Gerentes extends Funcionarios{
+public class Gerentes extends Funcionarios implements Autenticavel{
 
 	
 	private int senha;
 	private Integer codigo;
 	
 	
-	public boolean autenticar(int senha) {
-		if(this.senha==senha) {
-			System.out.println("Acesso Permitido");
-			return true;
-		}
-		System.out.println("Acesso Negado");
-		return false;
-	}
+
 	
 	/*@Override
 	public double getBonificacao() {
@@ -33,5 +26,14 @@ public class Gerentes extends Funcionarios{
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
+	}
+
+	@Override
+	public double getBonificacao() {
+		return super.getSalario()  *0.1;
+	}
+	@Override
+	public boolean senha(int senha) {
+		return false;
 	}
 }
