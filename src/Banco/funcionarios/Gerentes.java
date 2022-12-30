@@ -34,6 +34,9 @@ public class Gerentes extends Funcionarios implements Autenticavel{
 	}
 	@Override
 	public boolean senha(int senha) {
-		return false;
+		if(this.senha!=senha) {
+		return false;	
+		}
+		return true;
 	}
 }

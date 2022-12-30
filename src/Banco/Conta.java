@@ -7,6 +7,7 @@ import java.util.Objects;
 /***
  *
  */
+// pensar em transformar esta classe em uma interfaces também
 public  abstract class Conta {
 
     private LocalDate dataCriacao;
