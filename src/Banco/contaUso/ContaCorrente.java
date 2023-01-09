@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.*;
 
-public class ContaCorrente extends Conta implements MovimentConta{
+public class ContaCorrente extends Conta implements MovimentConta, Comparable<ContaCorrente>{
 
     private LocalDate dataLevantamento;
     private Cliente clientes;
@@ -94,6 +94,18 @@ public class ContaCorrente extends Conta implements MovimentConta{
 	public void dep(String... strings) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	// comparar as contas baseado no saldo que temos na conta
+	@Override
+	public int compareTo(ContaCorrente outra) {
+		if(this.getSaldo() < outra.getSaldo()) {
+			return -1;
+		}
+		if(this.getSaldo() > outra.getSaldo()) {
+			return 1;
+		}
+		return 0;
 	}
 
 
