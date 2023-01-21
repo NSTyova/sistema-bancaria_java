@@ -15,12 +15,7 @@ public class ContaCorrente extends Conta implements MovimentConta, Comparable<Co
 
     @Override
     public void levantar(Long  numero, Double valor, LocalDate dataMovimento) {
-       Calendar c = new GregorianCalendar();
-        // tentar pegar aqui o dia dez para não fazer levantamento pois é manutenção
-
-        if(c.equals(dataMovimento)){
-            System.out.println("O banco está em manuntenção "+ Calendar.getInstance());
-        }
+       //Calendar c = new GregorianCalendar();
        if(!this.getNumero().equals(numero) || dataMovimento.isBefore(dataLevantamento)){
            System.out.println("numero / data não estão certas ou é dia de manuntencão");
        }else {
@@ -79,6 +74,29 @@ public class ContaCorrente extends Conta implements MovimentConta, Comparable<Co
         }
         return conta;
     }
+    
+    // listar as compar ordenado por saldo
+    public List<ContaCorrente> ordernar(ContaCorrente cs){
+    	List<ContaCorrente> contas = Arrays.asList(cs);
+    	//contas.sort(Comparator.comparing(c-> c.getSaldo()));
+    	//USANDO METHOD REFERENCES NA COMPARACAO
+    	contas.sort(Comparator.comparing(ContaCorrente:: getSaldo));
+		return contas;
+    }
+    
+    // ORDENAR POR SALDO OU NOMES meter os sistema de saidas
+    // TENTAR PASSAR MAIS DE UMA CONTA NO PARAMENTRO
+    public List<ContaCorrente>  ordernarSladoNumero(ContaCorrente cs){
+    	List<ContaCorrente> contas = Arrays.asList(cs);
+    	contas.sort(Comparator.comparingDouble(ContaCorrente::getNumero)
+    			.thenComparing(ContaCorrente::getSaldo));
+    	contas.forEach(System.out::println);
+		return contas;
+    }
+    
+    
+    
+    
      public List<Conta> dados(){
         List<Conta> c = Arrays.asList();
         c.forEach((b) -> System.out.print(b.getSaldo() +""+ b.getNumero() + "" + b.getDataCriacao()));
@@ -87,7 +105,7 @@ public class ContaCorrente extends Conta implements MovimentConta, Comparable<Co
 
     @Override
     public String toString() {
-        return  ""+ dataLevantamento;
+        return  " "+ dataLevantamento;
     }
 
 	@Override
@@ -107,6 +125,24 @@ public class ContaCorrente extends Conta implements MovimentConta, Comparable<Co
 		}
 		return 0;
 	}
+	
+	//COMPARAR DUAS CONTAS PELO NUMERO dar solucao a este metodo
+	public void comparar(ContaCorrente c){
+		//LISTA DE CONTAS
+		List<ContaCorrente> contas = new ArrayList<>();
+		// COMDICAO PARA FAZER A COMPARACAO
+		Comparator<ContaCorrente> comparator=new Comparator<ContaCorrente>() {
+			@Override
+			public int compare(ContaCorrente conta1, ContaCorrente conta2) {
+				// TODO Auto-generated method stub
+				System.out.println("Salvaodr");
+				return conta1.getNumero().compareTo(conta2.getNumero());
+				
+			}
+		};
+		Collections.sort(contas, comparator);
+	}
+	
 
 
 }

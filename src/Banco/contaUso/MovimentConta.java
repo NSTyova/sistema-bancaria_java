@@ -1,7 +1,5 @@
 package Banco.contaUso;
 
-import Banco.Conta;
-
 import java.time.LocalDate;
 
 public interface MovimentConta {
