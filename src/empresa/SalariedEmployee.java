@@ -9,8 +9,8 @@ public class SalariedEmployee extends Employee{
 	public SalariedEmployee(String firstName, String lastName, 
 			String socialSecurityNumber, double weeklySalary) {
 			super(firstName, lastName, socialSecurityNumber);
-			if(weeklySalary >0.0) throw new IllegalArgumentException(
-					"O salario Semanal tem de ser >=0.0") {
+			if(weeklySalary <0.0) throw new IllegalArgumentException(
+					"O salario Semanal tem de ser <=0.0") {
 				
 			};
 			this.weeklySalary=weeklySalary;

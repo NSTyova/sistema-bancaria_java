@@ -7,10 +7,10 @@ public class CommissionEmployee extends Employee{
 	
 
 	public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber,
-			double commissionRate, double grossSales) {
+			 double grossSales, double commissionRate) {
 		super(firstName, lastName, socialSecurityNumber);
 		
-		if (commissionRate <= 0.0 || commissionRate >= 1.0) // VALIDA
+		if (commissionRate <= 0.0 || commissionRate >= 1.0)// VALIDA
 			throw new IllegalArgumentException(
 					"Commission rate must be > 0.0 and < 1.0");
 		if (grossSales < 0.0) // VALIDA
