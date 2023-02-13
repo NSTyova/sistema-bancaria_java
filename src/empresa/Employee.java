@@ -1,6 +1,6 @@
 package empresa;
 
-public abstract class Employee {
+public abstract class Employee implements Payable{
 
 	
 	private String firstName;
@@ -37,6 +37,6 @@ public abstract class Employee {
 	}
 	
 	// METODO QUE VALIDA OS GANHOS DE CADA FUNCIONARIO
-	public abstract double earnings();
+	//public abstract double earnings();
 	
 }

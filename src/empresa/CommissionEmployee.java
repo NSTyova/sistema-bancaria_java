@@ -21,7 +21,7 @@ public class CommissionEmployee extends Employee{
 	}
 
 	@Override
-	public double earnings() {
+	public double getPaymentAmount() {
 		// TODO Auto-generated method stub
 		return getCommissionRate() * getGrossSales();
 	}

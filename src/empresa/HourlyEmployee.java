@@ -1,12 +1,12 @@
 package empresa;
 
-public class HourEmployee extends Employee {
+public class HourlyEmployee extends Employee {
 	
 	private double wage; // SALARIO POR HORAS
 	private double hours; // HORAS TRABALHADAS DURANTE A SEMANA
 	
 	
-	public HourEmployee(String firstName, String lastName, 
+	public HourlyEmployee(String firstName, String lastName, 
 						String socialSecurityNumber,
 						double hours, double wage) {
 		super(firstName, lastName, socialSecurityNumber);
@@ -24,7 +24,7 @@ public class HourEmployee extends Employee {
 	}
 	
 	@Override
-	public double earnings() {
+	public double getPaymentAmount() {
 		if (getHours() <= 40) // NENHUMA HORA EXTRA
 			return getWage() * getHours();
 		else

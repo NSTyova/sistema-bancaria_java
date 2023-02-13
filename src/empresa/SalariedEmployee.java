@@ -16,11 +16,6 @@ public class SalariedEmployee extends Employee{
 			this.weeklySalary=weeklySalary;
 	}
 
-	// CALCULAR OS RENDIMENTOS NO METODO SUBRESCRITO
-	@Override
-	public double earnings() {
-		return getWeeklySalary();
-	}
 	
 	
 	// RETORNAR O SALARIO
@@ -32,6 +27,14 @@ public class SalariedEmployee extends Employee{
 	public String toString() {
 		 return String.format("Salario Funcionario: %s%n%s: $,.2f ",
 				super.toString(), "salario semanal", getWeeklySalary());
+	}
+
+
+
+	@Override
+	public double getPaymentAmount() {
+		// TODO Auto-generated method stub
+		return getWeeklySalary();
 	}
 
 	

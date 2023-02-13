@@ -6,8 +6,8 @@ public class MenuEmpresa {
 		// CRIAR OS OBJECTOS DAS SUBCLASSES
 		SalariedEmployee salariedEmployee=
 				new SalariedEmployee("Salvador", "Tyova", "424-202-0", 800.00);
-		HourEmployee hourEmployee= 
-				new HourEmployee("Alira", "Tyova", "471-54.0", 160.5, 40);
+		HourlyEmployee hourlyEmployee= 
+				new HourlyEmployee("Alira", "Tyova", "471-54.0", 160.5, 40);
 		CommissionEmployee commissionEmployee= 
 				new CommissionEmployee("Delfina", "Tyova", "410-414.0", 10000, .06);
 		
@@ -16,14 +16,14 @@ public class MenuEmpresa {
 		
 		System.out.println("Employees processed individually:");
 		System.out.printf("%n%s%n%s: $%,.2f%n%n",
-				salariedEmployee, "earned", salariedEmployee.earnings());
+				salariedEmployee, "earned", salariedEmployee.getPaymentAmount());
 		System.out.printf("%s%n%s: $%,.2f%n%n",
-				hourEmployee, "earned", hourEmployee.earnings());
+				hourlyEmployee, "earned", hourlyEmployee.getPaymentAmount());
 		System.out.printf("%s%n%s: $%,.2f%n%n",
-				commissionEmployee, "earned", commissionEmployee.earnings());
+				commissionEmployee, "earned", commissionEmployee.getPaymentAmount());
 		System.out.printf("%s%n%s: $%,.2f%n%n",
 				basePlusComissionEmployee,
-				"earned", basePlusComissionEmployee.earnings());
+				"earned", basePlusComissionEmployee.getPaymentAmount());
 		
 		//CRIA UM ARRAY EMPRESAS DE QUATRO ELEMENTOS
 		Employee[] employees= new Employee[4];
@@ -31,7 +31,7 @@ public class MenuEmpresa {
 		// INICIALIZAR O ARRAY COM OS ELEMENTOS
 		employees[0]=salariedEmployee;
 		employees[1]=commissionEmployee;
-		employees[2]=hourEmployee;
+		employees[2]=hourlyEmployee;
 		employees[3]=basePlusComissionEmployee;
 		
 		System.out.printf("Employees processed polymorphically:%n%n");
@@ -54,7 +54,7 @@ public class MenuEmpresa {
 			 // fim do if
 			}
 			System.out.printf(
-					"earned $%,.2f%n%n", currenteEmployee.earnings());
+					"earned $%,.2f%n%n", currenteEmployee.getPaymentAmount());
 		} // for final
 		// obtém o nome do tipo de cada objeto no array employees
 		for (int j = 0; j < employees.length; j++)
