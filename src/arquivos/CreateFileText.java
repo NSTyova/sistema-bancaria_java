@@ -18,7 +18,7 @@ public class CreateFileText {
 	}
 
 	// abre o arquivo clients.txt
-	private static void closeFile() {
+	private static void openFile() {
 		// TODO Auto-generated method stub
 		try {
 			output = new Formatter("clients.txt"); // abre o arquivo
@@ -55,7 +55,7 @@ public class CreateFileText {
 	} // fim do método addRecords
 
 	// fecha o arquivo
-	private static void openFile() {
+	private static void closeFile() {
 		if (output != null)
 			output.close();
 	}
